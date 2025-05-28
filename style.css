@@ -1,0 +1,77 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#game_section {
+    margin-top: 30px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px 50px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#display {
+    font-size: 6rem;
+    color: #ffeb3b;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+span {
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+#timer {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    background-color: #ff9800;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #fb8c00;
+}
+
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-left: 10px;
+    border: none;
+}
