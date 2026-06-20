@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -17,61 +17,138 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255,152,0,0.2);
+}
+
+.controls-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 12px;
 }
 
 #game_section {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 30px 50px;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    max-width: 450px;
 }
 
+/* 🌟 COMBO GLOW EFFECT (Wow feature) */
 #display {
     font-size: 6rem;
     color: #ffeb3b;
     margin-bottom: 20px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
 }
 
-p {
-    font-size: 1.2rem;
-    margin-top: 10px;
+#display.glow {
+    color: #00ffcc !important;
+    text-shadow: 0 0 30px #00ffcc, 0 0 50px #00ffcc;
+    transform: scale(1.15);
 }
 
-span {
-    font-weight: bold;
-    margin: 0 5px;
-}
-
-#timer {
-    font-size: 2rem;
-    margin-top: 20px;
-}
-
-button {
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
     margin-top: 15px;
-    padding: 12px 30px;
-    font-size: 1rem;
+}
+
+/* 🤖 AI Ghost UI Styling */
+.ai-competitor-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border-left: 4px solid #ff9800;
+}
+
+/* 🔥 Combo Toast Pop-up */
+.combo-toast {
+    background: #ff9800;
+    color: black;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: none;
+    animation: bounce 0.4s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+#timer { font-size: 1.8rem; margin: 10px 0; color: #ff5252; }
+button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
     background-color: #ff9800;
     border: none;
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+select { padding: 10px; font-size: 0.95rem; border-radius: 8px; border: none; background: #334155; color: white; }
+
+/* 🌟 Premium Custom Alert Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
 }
 
-button:hover {
-    background-color: #fb8c00;
+/* Modal Box Styles */
+.modal-box {
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid #ff9800;
+    box-shadow: 0 0 30px rgba(255, 152, 0, 0.3);
+    transform: scale(0.7);
+    transition: all 0.4s ease;
 }
 
-select {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 8px;
-    margin-left: 10px;
-    border: none;
+/* Show Modal state trigger via JS */
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
 }
+.modal-overlay.show .modal-box {
+    transform: scale(1);
+}
+
+#modal-title { font-size: 2rem; margin-bottom: 15px; color: #ff9800; }
+.modal-scores { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+.modal-scores p { font-size: 1.2rem; margin: 5px 0; }
+#modal-verdict { font-size: 1.3rem; font-weight: bold; margin-bottom: 20px; color: #00ffcc; }

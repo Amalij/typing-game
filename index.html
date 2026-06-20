@@ -2,35 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Typing Game</title>
-    
-   <link rel="stylesheet" href="style.css">
-   
-   
-    
-
+    <title>AI Word-Association Challenge</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Typing Game</h1>
+    <h1>Typing Game <span style="font-size: 1.5rem; color: #ff9800;">🤖 AI Challenge</span></h1>
 
-    <label for="difficulty">Select Difficulty: </label>
-    <select id="difficulty">
-        <option value="easy">Easy</option>
-        <option value="medium" selected>Medium</option>
-        <option value="hard">Hard</option>
-    </select>
+    <div class="controls-container">
+        <div>
+            <label for="difficulty">Difficulty: </label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
 
-    <button onclick="startGame()">Start Game</button>
+        <div>
+            <button id="voiceToggleBtn" onclick="toggleVoiceMode()">🎤 Voice Mode: OFF</button>
+            <button onclick="startGame()" style="background-color: #4CAF50;">🎮 Start Game</button>
+        </div>
+    </div>
+
     <h2 id="timer">Time: 30</h2>
+    <div id="combo_toast" class="combo-toast">🔥 COMBO STREAK!</div>
 
     <div id="game_section" style="display:none;">
-        <h2 id="display" style="padding:20px">Key</h2>
-        <p>
-            ✅ Correct : <span id="correct">0</span> |
-            ❌ Wrong : <span id="wrong">0</span>
+        <h2 id="display">Key</h2>
+        
+        <p id="voice-preview-box" style="display: none; color: #00ffcc; margin-bottom: 10px; font-weight: 500;">
+            Heard: "<span id="heard-word" style="color: #fff;">...</span>"
         </p>
-        <p>🏆 High Score: <span id="highScore">0</span></p>
+
+        <div class="stats-grid">
+            <p>✅ Correct: <span id="correct" style="color: #4CAF50;">0</span></p>
+            <p>❌ Wrong: <span id="wrong" style="color: #f44336;">0</span></p>
+            <p>🔥 Combo: <span id="combo" style="color: #ffeb3b;">0</span></p>
+        </div>
+
+        <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
+
+        <div class="ai-competitor-box">
+            <h4>👻 AI Ghost Status</h4>
+            <p>🤖 AI Score: <span id="aiScore" style="color: #ff9800; font-weight: bold;">0</span></p>
+            <small id="aiMessage" style="color: #aaa; font-style: italic;">AI is waiting...</small>
+        </div>
+
+        <p style="margin-top: 15px;">🏆 High Score: <span id="highScore">0</span></p>
     </div>
- <script src="script.js"></script>
+
+    <div id="customAlert" class="modal-overlay">
+        <div class="modal-box">
+            <h2 id="modal-title">🏆 GAME OVER</h2>
+            <div class="modal-scores">
+                <p>🧑 Your Score: <span id="modal-user-score">0</span></p>
+                <p>🤖 AI Score: <span id="modal-ai-score">0</span></p>
+            </div>
+            <p id="modal-verdict">Who won?</p>
+            <button onclick="closeModal()">Play Again 🔄</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
