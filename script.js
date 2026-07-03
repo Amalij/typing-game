@@ -34,7 +34,7 @@ let secondsPerLetter = 4;
 let currentLetterTimer = secondsPerLetter;
 let recognition;
 
-// 🤖 AI එක හිතනවා පෙන්වන්න විවිධ අකුරු වලට අදාළ වචන ලිස්ට් එකක් (Fake AI Brain)
+// 🤖   (Fake AI Brain)
 const aiBrainWords = {
     A: ["Apple", "Ant", "Airplane", "Arrow"], B: ["Ball", "Banana", "Book", "Bear"],
     C: ["Cat", "Car", "Computer", "Cake"], D: ["Dog", "Door", "Desk", "Duck"],
@@ -60,9 +60,9 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
     recognition = new SpeechRecognition();
     recognition.continuous = true;
     
-    // 💡 ලංකාවේ උච්චාරණයට වඩාත් ගැලපෙන ලෙස සැකසීම
+    // 💡 set sri lankan pronociation 
     recognition.lang = 'en-LK'; 
-    recognition.interimResults = true; // Live ඇහෙන දේ බලාගන්න true කලා
+    recognition.interimResults = true; // Live 
 
     recognition.onresult = (event) => {
         if (!isGameRunning || !isVoiceMode) return;
@@ -77,7 +77,7 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
 
         const requiredLetter = display.innerText.toLowerCase();
         
-        // 💡 Better Matching Logic: වචන කිහිපයක් ඇහුණත්, ඒ අතරේ නිවැරදි අකුරෙන් පටන් ගන්නා වචනයක් තිබේ නම් සාර්ථක ලෙස ගනියි.
+        // 💡 Better Matching Logic
         const wordsArray = spokenWord.split(" ");
         const hasCorrectWord = wordsArray.some(word => word.startsWith(requiredLetter) && word.length > 1);
 
@@ -150,7 +150,7 @@ function nextRound() {
     currentLetterTimer = secondsPerLetter;
     const currentLetter = display.innerText;
 
-    // 🤖 1. AI Thinking Animation Engine (ස්ක්‍රීන් එකේ AI වචන මාරු වෙමින් හිතනවා පෙනෙයි)
+    // 🤖 1. AI Thinking Animation Engine  
     let wordsPool = aiBrainWords[currentLetter] || ["Thinking..."];
     let wordIndex = 0;
     
@@ -159,7 +159,7 @@ function nextRound() {
         aiMessage.innerText = `🤖 AI is thinking: "${currentThinkingWord}..." (${currentLetterTimer}s left)`;
         aiMessage.style.color = "#00ffcc";
         wordIndex++;
-    }, 450); // හැම මිලි තත්පර 450කටම AI එක හිතන වචනය වෙනස් වේ
+    }, 450);  
 
     // 🤖 2. AI Scoring Timer
     aiTimer = setInterval(() => {
@@ -174,7 +174,7 @@ function nextRound() {
             aiScore++;
             aiScoreDisplay.innerText = aiScore;
             
-            // AI එක ජයග්‍රහණය කල වචනය පෙන්වීම
+             
             let finalAiWord = wordsPool[Math.floor(Math.random() * wordsPool.length)];
             aiMessage.innerText = `🤖 AI Ghost blurted out "${finalAiWord}" first! (+1 AI)`;
             aiMessage.style.color = "#ff9800";
@@ -236,7 +236,7 @@ function handleInput(isCorrect) {
     }, 1200);
 }
 
-// Keyboard typing (Voice Mode OFF නම් විතරයි වැඩ)
+// Keyboard typing (Voice Mode OFF)
 document.addEventListener('keyup', function (e) {
     if (!isGameRunning || isVoiceMode) return;
     
