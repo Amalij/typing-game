@@ -1,6 +1,13 @@
-# 🤖 AI Word-Association Challenge (Typing Game)
+ # 🤖 AI Word-Association Challenge (Typing Game)
 
 An interactive, fast-paced typing and voice-controlled word association game built with vanilla HTML, CSS, and JavaScript. Challenge your brain against an "AI Ghost" that simulates quick-thinking word triggers before your timer runs out!
+
+---
+
+## 🌐 Live Demo
+Click the badge below to play the game directly in your browser:
+
+[![Play Game](https://img.shields.io/badge/🎮%20Play%20Now-Live%20Demo-brightgreen?style=for-the-badge&logo=vercel)](https://amalij.github.io/typing-game/)
 
 ---
 
@@ -44,6 +51,3 @@ An interactive, fast-paced typing and voice-controlled word association game bui
 ├── style.css        # Space-dark gradients, layout structure, animations, and glow effects
 ├── script.js        # AI mechanics, speech engine, timers, and application state loops
 └── README.md        # Documentation
-
-## Live Demo:
-https://amalij.github.io/typing-game/
