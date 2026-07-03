@@ -44,3 +44,6 @@ An interactive, fast-paced typing and voice-controlled word association game bui
 ├── style.css        # Space-dark gradients, layout structure, animations, and glow effects
 ├── script.js        # AI mechanics, speech engine, timers, and application state loops
 └── README.md        # Documentation
+
+## Live Demo:
+https://amalij.github.io/typing-game/
